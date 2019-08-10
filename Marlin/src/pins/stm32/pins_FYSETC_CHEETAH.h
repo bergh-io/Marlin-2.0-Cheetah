@@ -82,7 +82,7 @@
 #define HEATER_0_PIN       PC6
 #define HEATER_BED_PIN     PC7
 #ifndef FAN_PIN
-  #define FAN_PIN          PC8
+  #define FAN_PIN          40 //PC8
 #endif
 
 //
@@ -125,13 +125,13 @@
   #define SD_DETECT_PIN    PC3
 
   #ifndef RGB_LED_R_PIN
-    #define RGB_LED_R_PIN  PB0
+    #define RGB_LED_R_PIN  -1 //PB0
   #endif
   #ifndef RGB_LED_G_PIN
-    #define RGB_LED_G_PIN  PB7
+    #define RGB_LED_G_PIN  -1 //PB7
   #endif
   #ifndef RGB_LED_B_PIN
-    #define RGB_LED_B_PIN  PB6
+    #define RGB_LED_B_PIN  -1 //PB6
   #endif
 
   //#define LCD_CONTRAST   190

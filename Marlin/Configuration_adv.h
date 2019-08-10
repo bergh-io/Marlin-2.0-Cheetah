@@ -277,9 +277,9 @@
  * The fan will turn on automatically whenever any stepper is enabled
  * and turn off after a set period after all steppers are turned off.
  */
-//#define USE_CONTROLLER_FAN
+#define USE_CONTROLLER_FAN
 #if ENABLED(USE_CONTROLLER_FAN)
-  //#define CONTROLLER_FAN_PIN -1        // Set a custom pin for the controller fan
+  #define CONTROLLER_FAN_PIN 23 //PB7 Green LED for -        // Set a custom pin for the controller fan
   #define CONTROLLERFAN_SECS 60          // Duration in seconds for the fan to run after all motors are disabled
   #define CONTROLLERFAN_SPEED 255        // 255 == full speed
 #endif
@@ -345,7 +345,7 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#define E0_AUTO_FAN_PIN -1
+#define E0_AUTO_FAN_PIN PB6 //Blue LED for -
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
@@ -1419,16 +1419,16 @@
  * Note that M207 / M208 / M209 settings are saved to EEPROM.
  *
  */
-//#define FWRETRACT
+#define FWRETRACT
 #if ENABLED(FWRETRACT)
   #define FWRETRACT_AUTORETRACT           // costs ~500 bytes of PROGMEM
   #if ENABLED(FWRETRACT_AUTORETRACT)
     #define MIN_AUTORETRACT 0.1           // When auto-retract is on, convert E moves of this length and over
     #define MAX_AUTORETRACT 10.0          // Upper limit for auto-retract conversion
   #endif
-  #define RETRACT_LENGTH 3                // Default retract length (positive mm)
+  #define RETRACT_LENGTH 1.5              // Default retract length (positive mm)
   #define RETRACT_LENGTH_SWAP 13          // Default swap retract length (positive mm), for extruder change
-  #define RETRACT_FEEDRATE 45             // Default feedrate for retracting (mm/s)
+  #define RETRACT_FEEDRATE 35             // Default feedrate for retracting (mm/s)
   #define RETRACT_ZRAISE 0                // Default retract Z-raise (mm)
   #define RETRACT_RECOVER_LENGTH 0        // Default additional recover length (mm, added to retract length when recovering)
   #define RETRACT_RECOVER_LENGTH_SWAP 0   // Default additional swap recover length (mm, added to retract length when recovering from extruder change)
@@ -1779,7 +1779,7 @@
    */
   #define STEALTHCHOP_XY
   #define STEALTHCHOP_Z
-  //#define STEALTHCHOP_E
+  #define STEALTHCHOP_E
 
   /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets

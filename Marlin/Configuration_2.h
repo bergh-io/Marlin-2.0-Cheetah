@@ -137,11 +137,11 @@
 
 // Optional custom name for your RepStrap or other custom machine
 // Displayed in the LCD "Ready" message
-#define CUSTOM_MACHINE_NAME "Printer 1"
+#define CUSTOM_MACHINE_NAME "Printer 2"
 
 // Define this to set a unique identifier for this printer, (Used by some programs to differentiate between machines)
 // You can use an online service to generate a random UUID. (eg http://www.uuidgenerator.net/version4)
-#define MACHINE_UUID "668cfa08-b4ab-11e9-a2a3-2a2ae2dbcce4"
+#define MACHINE_UUID "668cfc7e-b4ab-11e9-a2a3-2a2ae2dbcce4"
 
 // @section extruder
 
@@ -469,9 +469,9 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // Ultimaker
-  #define DEFAULT_Kp 19.88
-  #define DEFAULT_Ki 1.40
-  #define DEFAULT_Kd 70.53
+  #define DEFAULT_Kp 13.3
+  #define DEFAULT_Ki 0.79
+  #define DEFAULT_Kd 55.99 
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -550,7 +550,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 400
+#define EXTRUDE_MAXLENGTH 200
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -711,7 +711,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 410 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -900,12 +900,12 @@
  *     O-- FRONT --+
  *   (0,0)
  */
-#define X_PROBE_OFFSET_FROM_EXTRUDER -41  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -8  // Y offset: -front +behind [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER 32  // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER 2  // Y offset: -front +behind [the nozzle]
 #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.54     // Z offset: -below +above  [the nozzle]
 
 // Certain types of probes need to stay away from edges
-#define MIN_PROBE_EDGE 20 
+#define MIN_PROBE_EDGE 10
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 200*60
@@ -1008,7 +1008,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR true
+#define INVERT_E0_DIR false
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1191,14 +1191,14 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 5
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  #define LEFT_PROBE_BED_POSITION MIN_PROBE_EDGE
-  #define RIGHT_PROBE_BED_POSITION (X_BED_SIZE - 61)
+  #define LEFT_PROBE_BED_POSITION X_PROBE_OFFSET_FROM_EXTRUDER //MIN_PROBE_EDGE
+  //#define RIGHT_PROBE_BED_POSITION (X_BED_SIZE - (MIN_PROBE_EDGE))
   #define FRONT_PROBE_BED_POSITION MIN_PROBE_EDGE
-  #define BACK_PROBE_BED_POSITION (Y_BED_SIZE - 33)
+  //#define BACK_PROBE_BED_POSITION (Y_BED_SIZE - (MIN_PROBE_EDGE))
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
@@ -1318,8 +1318,8 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT MIN_PROBE_EDGE // ((X_BED_SIZE) / 2)    // X point for Z homing when homing all axes (G28).
-  #define Z_SAFE_HOMING_Y_POINT MIN_PROBE_EDGE // ((Y_BED_SIZE) / 2)    // Y point for Z homing when homing all axes (G28).
+  #define Z_SAFE_HOMING_X_POINT 32 // ((X_BED_SIZE) / 2)    // X point for Z homing when homing all axes (G28).
+  #define Z_SAFE_HOMING_Y_POINT 10 // ((Y_BED_SIZE) / 2)    // Y point for Z homing when homing all axes (G28).
 #endif
 
 // Homing speeds (mm/m)
